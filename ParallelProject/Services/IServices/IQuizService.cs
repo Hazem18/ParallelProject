@@ -10,7 +10,8 @@ namespace ParallelProject.Services.IServices
     public interface IQuizService
     {
         Task CreateQuizAsync(Quiz quiz); 
-        Task<Quiz> GetQuizByIdAsync(int quizId); 
+        Task<Quiz> GetQuizByIdAsync(int quizId);
+        Task<IEnumerable<Answer>> GetUserAnswersForQuizAsync(int quizId, int userId);
         Task<IEnumerable<Quiz>> GetAllQuizzesAsync(); 
         Task AddQuestionToQuizAsync(int quizId, Question question); 
         Task<IEnumerable<Question>> GetQuestionsForQuizAsync(int quizId);

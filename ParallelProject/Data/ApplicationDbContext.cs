@@ -11,6 +11,10 @@ namespace ParallelProject.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         // DbSets for the models
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -19,13 +23,13 @@ namespace ParallelProject.Data
         public DbSet<QuizResult> QuizResults { get; set; }
         public DbSet<Answer> Answers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source = LAPTOP-EPP1LDGQ\\MSSQLSERVER04; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True");
-            //optionsBuilder.UseSqlServer("Data Source = .; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True");
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer("Data Source = LAPTOP-EPP1LDGQ\\MSSQLSERVER04; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True");
+        //    //optionsBuilder.UseSqlServer("Data Source = .; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True");
 
-        }
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Example: Seed Roles

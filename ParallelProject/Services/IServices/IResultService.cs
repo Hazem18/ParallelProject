@@ -11,6 +11,7 @@ namespace ParallelProject.Services.IServices
     {
         Task SubmitQuizResultAsync(QuizResult result);
         Task<IEnumerable<QuizResult>> GetUserQuizResultsAsync(int userId);
+        Task UpdateQuizResultAsync(QuizResult quizResult);
         Task<int> CalculateScoreAsync(IEnumerable<Question> questions, IEnumerable<Answer> userAnswers);
     }
 }
