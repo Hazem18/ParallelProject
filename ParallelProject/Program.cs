@@ -17,7 +17,7 @@ namespace ParallelProject
             // Set up dependency injection
             var services = new ServiceCollection();
             services.AddDbContextFactory<ApplicationDbContext>(options =>
-                options.UseSqlServer("Data Source = LAPTOP-EPP1LDGQ\\MSSQLSERVER04; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True"));
+                options.UseSqlServer("Data Source = YOUSSEFLAWENDY\\SQLEXPRESS; Initial Catalog = QuizSystem; Integrated Security = True; TrustServerCertificate = True"));
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IQuizService, QuizService>();
