@@ -1,22 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using ParallelProject.Data;
+
 namespace GUI
 {
     public partial class Quizzilles : Form
     {
-        public Quizzilles()
+        private readonly IDbContextFactory<ApplicationDbContext> _dbContextFactory;
+        public Quizzilles(IDbContextFactory<ApplicationDbContext> dbContextFactory)
         {
             InitializeComponent();
+            _dbContextFactory = dbContextFactory;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoginPage login = new();
+            LoginPage login = new(_dbContextFactory);
             login.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SignupPage signUp = new();
+            SignupPage signUp = new(_dbContextFactory);
             signUp.Show();
             this.Hide();
         }

@@ -13,5 +13,7 @@ namespace ParallelProject.Services.IServices
         Task<bool> AuthenticateAsync(string email, string password);
         Task<User> GetUserByIdAsync(int userId);
         Task<List<User>> GetAllUsersAsync();
+         Task<int?> GetUserIdAsync(string name);
+        Task<int?> GetRoleIdAsync(string name);
     }
 }

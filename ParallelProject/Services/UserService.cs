@@ -48,6 +48,28 @@ namespace ParallelProject.Services
             }
         }
 
+        public async Task<int?> GetUserIdAsync(string name)
+        {
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                var user = await context.Users
+                    .FirstOrDefaultAsync(u => u.Name == name);
+
+                return user?.Id;  // Return the user Id or null if not found
+            }
+        }
+
+        public async Task<int?> GetRoleIdAsync(string name)
+        {
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                var user = await context.Users
+                    .FirstOrDefaultAsync(u => u.Name == name);
+
+                return user?.RoleId;  // Return the user Id or null if not found
+            }
+        }
+
         // New method to fetch all users
         public async Task<List<User>> GetAllUsersAsync()
         {
